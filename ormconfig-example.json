@@ -1,0 +1,11 @@
+{
+  "type": "database type",
+  "host": "host",
+  "port": 1234,
+  "username": "username",
+  "password": "password",
+  "database": "database",
+  "logging": true,
+  "entities": ["entities route"],
+  "synchronize": true
+}
