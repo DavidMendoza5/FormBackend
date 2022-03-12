@@ -26,14 +26,21 @@ const create = Joi.object({
     'string.empty': 'La fecha de nacimiento no debe ser un texto vacío',
     'any.required': 'La fecha de nacimiento es un campo requerido',
   }),
-  email: Joi.string().trim().required().messages({
+  email: Joi.string().trim().email().required().messages({
     'string.base': 'El email debe ser un texto',
     'string.empty': 'El email no debe ser un texto vacío',
+    'string.email': 'El correo electrónico tiene un formato inválido',
     'any.required': 'El email es un campo requerido',
   }),
-  phone_number: Joi.string().trim().required().messages({
+  phone_number: Joi.string()
+    .trim()
+    .regex(
+    /^(\(\+?\d{2,3}\)[\*|\s|\-|\.]?(([\d][\*|\s|\-|\.]?){6})(([\d][\s|\-|\.]?){2})?|(\+?[\d][\s|\-|\.]?){8,10}(([\d][\s|\-|\.]?){2}(([\d][\s|\-|\.]?){2})?)?)$/,
+    )
+    .required().messages({
     'string.base': 'El número de teléfono debe ser un texto',
     'string.empty': 'El número de teléfono no debe ser un texto vacío',
+    'string.pattern.base': 'Número de teléfono inválido',
     'any.required': 'El número de teléfono es un campo requerido',
   }),
 });
