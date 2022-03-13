@@ -1,5 +1,5 @@
 {
-  "type": "database type",
+  "type": "mysql",
   "host": "host",
   "port": 1234,
   "username": "username",
