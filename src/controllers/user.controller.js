@@ -11,12 +11,12 @@ const createUser = async (req,res) => {
       birthdate: req.body.birthdate,
       email: req.body.email,
       phonenumber: req.body.phone_number,
-    }
+    };
 
-    const user_created = await create(User, user)
-    res.status(201).send({user: user_created, message: 'User created'})
+    const user_created = await create(User, user);
+    res.status(201).send({user: user_created, message: 'User created'});
   } catch(err) {
-      res.status(500).send({ message: err.message })
+      res.status(500).send({ message: err.message });
   }
 };
 
