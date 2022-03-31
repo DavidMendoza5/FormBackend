@@ -21,9 +21,10 @@ const create = Joi.object({
     'string.empty': 'El segundo apellido no debe ser un texto vacío',
     'any.required': 'El segundo apellido es un campo requerido',
   }),
-  birthdate: Joi.string().trim().required().messages({
+  birthdate: Joi.string().trim().regex(/^(0[1-9]|[1-2]\d|3[01])[\s]([A-Z][a-z]+)[\s](\d{3,4})$/).required().messages({
     'string.base': 'La fecha de nacimiento debe ser un texto',
     'string.empty': 'La fecha de nacimiento no debe ser un texto vacío',
+    'string.pattern.base': 'Fecha inválida. Ejemplo: 05 Diciembre 2000',
     'any.required': 'La fecha de nacimiento es un campo requerido',
   }),
   email: Joi.string().trim().email().required().messages({
