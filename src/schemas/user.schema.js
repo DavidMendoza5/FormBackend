@@ -1,7 +1,7 @@
 const { EntitySchema } = require('typeorm');
 
 module.exports = new EntitySchema({
-  name: 'users_test_david_mendoza_rodriguez',
+  name: 'users_test_david',
   columns: {
     id: {
       type: 'uuid',
@@ -29,5 +29,18 @@ module.exports = new EntitySchema({
     phonenumber: {
       type: String,
     },
-  }
+    createdAt: {
+      type: 'timestamp',
+      createDate: true,
+    },
+    updatedAt: {
+      type: 'timestamp',
+      updateDate: true,
+    },
+    deletedAt: {
+      type: 'timestamp',
+      deleteDate: true,
+      nullable: true,
+    },
+  },
 });
